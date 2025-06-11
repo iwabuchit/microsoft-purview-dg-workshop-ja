@@ -9,23 +9,23 @@
       
       
       
+        <link rel="prev" href="../module02/">
       
-        <link rel="next" href="module99/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
-        <title>Microsoft Purview Data Governance Workshop JP</title>
+        <title>M03. Azure SQL Databaseの登録とスキャン - Microsoft Purview Data Governance Workshop JP</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -63,7 +63,7 @@
     
     
     
-   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -72,7 +72,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#top" class="md-skip">
+        <a href="#m03-azure-sql-database" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Microsoft Purview Data Governance Workshop JP" class="md-header__button md-logo" aria-label="Microsoft Purview Data Governance Workshop JP" data-md-component="logo">
+    <a href="../.." title="Microsoft Purview Data Governance Workshop JP" class="md-header__button md-logo" aria-label="Microsoft Purview Data Governance Workshop JP" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TOP
+              M03. Azure SQL Databaseの登録とスキャン
             
           </span>
         </div>
@@ -201,7 +201,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Microsoft Purview Data Governance Workshop JP" class="md-nav__button md-logo" aria-label="Microsoft Purview Data Governance Workshop JP" data-md-component="logo">
+    <a href="../.." title="Microsoft Purview Data Governance Workshop JP" class="md-nav__button md-logo" aria-label="Microsoft Purview Data Governance Workshop JP" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -216,30 +216,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    TOP
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -248,53 +228,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      はじめに
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      前提条件と環境のセットアップ
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learning-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Learning Modules
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -306,7 +239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module99/" class="md-nav__link">
+      <a href="../../module99/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,7 +299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="1.Setup/setup01/" class="md-nav__link">
+      <a href="../../1.Setup/setup01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -387,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="1.Setup/setup03/" class="md-nav__link">
+      <a href="../../1.Setup/setup03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -412,8 +345,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -423,11 +358,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -441,7 +376,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             2.Modules
@@ -455,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="2.Modules/module01/" class="md-nav__link">
+      <a href="../module01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -476,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="2.Modules/module02/" class="md-nav__link">
+      <a href="../module02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -494,10 +429,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="2.Modules/module03/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    M03. Azure SQL Databaseの登録とスキャン
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -506,6 +461,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      はじめに
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="はじめに">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📢 導入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤔 前提条件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 ゴール
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-data-lake-storage-gen2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure Data Lake Storage Gen2の登録とスキャン
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-sql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure SQL Databaseの登録とスキャン
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      関連リンク
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -551,21 +595,63 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="はじめに">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📢 導入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤔 前提条件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 ゴール
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#azure-data-lake-storage-gen2" class="md-nav__link">
     <span class="md-ellipsis">
-      前提条件と環境のセットアップ
+      Azure Data Lake Storage Gen2の登録とスキャン
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#learning-modules" class="md-nav__link">
+  <a href="#azure-sql-database" class="md-nav__link">
     <span class="md-ellipsis">
-      Learning Modules
+      Azure SQL Databaseの登録とスキャン
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      関連リンク
     </span>
   </a>
   
@@ -586,37 +672,35 @@
                   
 
 
-<h1 id="top">TOP</h1>
+<h1 id="m03-azure-sql-database">M03. Azure SQL Databaseの登録とスキャン</h1>
 <h2 id="_1">はじめに</h2>
-<p>このワークショップではMicrosoft Purview Data Governanceの基本的な利用方法をワークショップ形式で学んでいきます。</p>
-<h2 id="_2">前提条件と環境のセットアップ</h2>
-<ol>
-<li>前提条件と環境のセットアップ</li>
-<li>Purview Accountの作成</li>
-<li>データ資産の作成</li>
-</ol>
-<h2 id="learning-modules">Learning Modules</h2>
-<ol>
-<li>コレクションの作成と権限付与</li>
-<li>データのセットアップと設定<ol>
-<li>データ資産の登録とスキャン (Azure Data Lake Storage Gen2)</li>
-<li>データ資産の登録とスキャン (Azure SQL Database)</li>
-</ol>
-</li>
-<li>ガバナンスドメインの設定</li>
-<li>データ製品の設定</li>
-<li>データ品質の設定</li>
-<li>データ正常性の管理</li>
-</ol>
-<!--
-
-## アンケート
-
-[アンケート](https://forms.office.com/r/JuLhq2r8Uu) への回答をお願い致します。
-
-![](./images/index/QRCode.png)
-
--->
+<h3 id="_2">📢 導入</h3>
+<p>このモジュールでは、。。。</p>
+<h3 id="_3">🤔 前提条件</h3>
+<ul>
+<li>Microsoft Purview アカウント</li>
+<li>Purview アカウント所有者を持つユーザー</li>
+<li>Salesドメイン、Marketingドメインのカタログ管理者を想定したEntra IDユーザー</li>
+</ul>
+<h3 id="_4">🎯 ゴール</h3>
+<ul>
+<li>新しいテクニカル ドメインを作成する</li>
+<li>コレクションを2つ作成する</li>
+<li>各コレクションの管理者にロールを設定する</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>このモジュールではPurview アカウントの所有者が操作をします。</li>
+<li>操作対象ソリューションはデータマップです。</li>
+</ul>
+</div>
+<h2 id="azure-data-lake-storage-gen2">Azure Data Lake Storage Gen2の登録とスキャン</h2>
+<h2 id="azure-sql-database">Azure SQL Databaseの登録とスキャン</h2>
+<h2 id="_5">関連リンク</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/purview/concept-domains">Domains in the Microsoft Purview Data Map</a></li>
+</ul>
 
 
 
@@ -671,10 +755,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections", "navigation.top", "content.code.copy"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
