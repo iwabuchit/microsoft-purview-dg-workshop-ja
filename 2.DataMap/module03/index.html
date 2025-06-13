@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../setup01/">
+        <link rel="prev" href="../module02/">
       
       
-        <link rel="next" href="../setup04/">
+        <link rel="next" href="../module04/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>S03. データ資産の作成と設定 - Microsoft Purview Data Governance Workshop JP</title>
+        <title>D03. Azure SQL Databaseの登録とスキャン - Microsoft Purview Data Governance Workshop JP</title>
       
     
     
@@ -93,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#s03" class="md-skip">
+        <a href="#d03-azure-sql-database" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S03. データ資産の作成と設定
+              D03. Azure SQL Databaseの登録とスキャン
             
           </span>
         </div>
@@ -258,6 +258,116 @@
       
   
   
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    1.Setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            1.Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.Setup/setup01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前提条件と環境のセットアップ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.Setup/setup03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S03. データ資産の作成と設定
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.Setup/setup04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Purview アカウントのセットアップ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -275,24 +385,24 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
-    1.Setup
+    2.DataMap
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            1.Setup
+            2.DataMap
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -303,11 +413,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup01/" class="md-nav__link">
+      <a href="../module01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    前提条件と環境のセットアップ
+    D01. テクニカル ドメインとコレクションの作成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    D02. Azure Data Lake Storage Gen2の登録とスキャン
   </span>
   
 
@@ -337,7 +468,7 @@
           
   
   <span class="md-ellipsis">
-    S03. データ資産の作成と設定
+    D03. Azure SQL Databaseの登録とスキャン
   </span>
   
 
@@ -348,7 +479,7 @@
         
   
   <span class="md-ellipsis">
-    S03. データ資産の作成と設定
+    D03. Azure SQL Databaseの登録とスキャン
   </span>
   
 
@@ -397,15 +528,60 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 ゴール
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#purviewid" class="md-nav__link">
     <span class="md-ellipsis">
-      データ資産の作成
+      PurviewアカウントのマネージドIDへのロール付与
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-servermicrosoft-entra" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL ServerのMicrosoft Entra管理者設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      マネージドIDへのアクセス許可設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-sql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure SQL Databaseの登録
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-sql-database_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure SQL Databaseのスキャン
     </span>
   </a>
   
@@ -413,24 +589,6 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      ソースファイルのアップロード
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#azure-data-factoryadf" class="md-nav__link">
-    <span class="md-ellipsis">
-      Azure Data Factory(ADF)の登録とパイプラインの実行
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -454,138 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup04/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Purview アカウントのセットアップ
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    2.DataMap
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            2.DataMap
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../2.DataMap/module01/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    D01. テクニカル ドメインとコレクションの作成
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../2.DataMap/module02/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    D02. Azure Data Lake Storage Gen2の登録とスキャン
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../2.DataMap/module03/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    D03. Azure SQL Databaseの登録とスキャン
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../2.DataMap/module04/" class="md-nav__link">
+      <a href="../module04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,15 +755,60 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 ゴール
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#purviewid" class="md-nav__link">
     <span class="md-ellipsis">
-      データ資産の作成
+      PurviewアカウントのマネージドIDへのロール付与
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-servermicrosoft-entra" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL ServerのMicrosoft Entra管理者設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      マネージドIDへのアクセス許可設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-sql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure SQL Databaseの登録
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-sql-database_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure SQL Databaseのスキャン
     </span>
   </a>
   
@@ -744,24 +816,6 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      ソースファイルのアップロード
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#azure-data-factoryadf" class="md-nav__link">
-    <span class="md-ellipsis">
-      Azure Data Factory(ADF)の登録とパイプラインの実行
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -784,115 +838,166 @@
                   
 
 
-<h1 id="s03">S03. データ資産の作成と設定</h1>
+<h1 id="d03-azure-sql-database">D03. Azure SQL Databaseの登録とスキャン</h1>
 <h2 id="_1">はじめに</h2>
 <h3 id="_2">📢 導入</h3>
-<p>このモジュールでは、。。。データ資産を作成します。</p>
+<p>このモジュールでは、Microsoft Purview を用いて Azure SQL Database をデータマップに登録し、スキャンを実行する手順を学びます。特に、Marketing ドメインの管理者が操作主体となり、適切なロールの割り当てや Entra ID の設定、マネージド ID へのアクセス許可の構成を通じて、テーブルおよびビューの系列（Lineage）情報を取得する方法を習得します。データ資産の可視化とガバナンス強化に向けた基礎的なスキルを身につけることが目的です。</p>
 <h3 id="_3">🤔 前提条件</h3>
 <ul>
-<li>Microsoft Purview アカウント</li>
-<li>Purview アカウント所有者を持つユーザー</li>
-<li>Salesドメイン、Marketingドメインのカタログ管理者を想定したEntra IDユーザー</li>
+<li>D01.テクニカル ドメインとコレクションの作成</li>
 </ul>
-<h2 id="_4">データ資産の作成</h2>
-<p>以下をクリックしてデータ資産を作成します。</p>
-<p><a href="./dummy.png">デプロイ</a>http://127.0.0.1:8000/2.Modules/module01/</p>
-<ol>
-<li>
-<p>デプロイが完了したら作成したリソースグループの <strong>アクセス制御</strong> から <strong>+追加</strong> をクリックし <strong>ロールの割り当ての追加</strong> を選択します。</p>
-<p><a class="glightbox" href="../images/setup03/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-15.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>特権管理ロール</strong> から <strong>所有者</strong> を選び <strong>次へ</strong> をクリックします。</p>
-<!-- <a class="glightbox" href="images/setup03/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/setup03/image-16.png" /></a>{width=90%} -->
-<p><a class="glightbox" href="../images/setup03/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-18.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>+メンバーを選択する</strong> をクリックしSalesドメイン、Marketingドメインのカタログ管理者を想定したユーザーを検索して選択し次へをクリックします。</p>
-<!-- <a class="glightbox" href="images/setup03/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/setup03/image-17.png" /></a>{width=90%} -->
-<p><a class="glightbox" href="../images/setup03/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-19.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>ユーザーにすべてのロールの割り当てを許可する (高い特権)</strong> を選択し <strong>レビューと割り当て</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-20.png" width="90%" /></a></p>
-</li>
-</ol>
-<h2 id="_5">ソースファイルのアップロード</h2>
-<ol>
-<li>
-<p><a href="../../files/">ここ</a>からファイルをダウンロードしコンテナにアップロードします。</p>
-<p><a class="glightbox" href="../images/setup03/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>dataset</strong>コンテナをクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-4.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>アップロード</strong>をクリックしファイルを選択して<strong>アップロード</strong>をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-2.png" width="90%" /></a></p>
-</li>
-<li>
-<p>アップロードが成功したことを確認します。</p>
-<p><a class="glightbox" href="../images/setup03/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-1.png" width="90%" /></a></p>
-</li>
-</ol>
-<h2 id="azure-data-factoryadf">Azure Data Factory(ADF)の登録とパイプラインの実行</h2>
-<ol>
-<li>
-<p>AzureポータルからADFを選択します。</p>
-<p><a class="glightbox" href="../images/setup03/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-3.png" width="90%" /></a></p>
-</li>
-<li>
-<p>ADF Studioを起動します。</p>
-<p><a class="glightbox" href="../images/setup03/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-5.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>管理</strong> から <strong>Microsoft Purview</strong> を選択し、<strong>Purview アカウントに接続</strong> をクリックしPurviewアカウントを選択して <strong>適用</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-6.png" width="90%" /></a></p>
-</li>
-<li>
-<p>正常に接続されたことを確認します。</p>
-<p><a class="glightbox" href="../images/setup03/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-7.png" width="90%" /></a></p>
-</li>
-<li>
-<p>Purview DGのポータル画面の <strong>データマップ</strong> から作成したテクニカルドメインを選択し <strong>ロールの割り当て</strong> から <strong>データ キュレーターの追加アイコン</strong> をクリックします。</p>
-<details class="warning">
-<summary>ここでは Purview ガバナンス ポータル を操作します。</summary>
-</details>
-<p><a class="glightbox" href="../images/setup03/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-8.png" width="90%" /></a></p>
-</li>
-<li>
-<p>ADFのマネージドIDを検索、追加し <strong>OK</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-9.png" width="90%" /></a></p>
-</li>
-<li>
-<p>ADF Studioに戻り <strong>鉛筆アイコン</strong> をクリックし <strong>copyPipeline</strong> を選択し <strong>トリガーの追加</strong> から <strong>今すぐトリガー</strong> をクリックします。</p>
-<details class="warning">
-<summary>ここでは ADF Studio を操作します。</summary>
-</details>
-<p><a class="glightbox" href="../images/setup03/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-10.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>OK</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-11.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>モニター アイコン</strong>をクリックし <strong>パイプライン実行</strong> を選択して <strong>copyPipeline</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-12.png" width="90%" /></a></p>
-</li>
-<li>
-<p>系列の状態の詳細から状態が成功になっていることを確認します。</p>
-<p><a class="glightbox" href="../images/setup03/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-13.png" width="90%" /></a></p>
-</li>
-</ol>
+<h3 id="_4">🎯 ゴール</h3>
+<ul>
+<li>Azure SQL Databaseをコレクションに登録しスキャンを行う</li>
+<li>テーブルとビューのLineageの取り込みを行う</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>系列のプッシュが成功すると Purview DG 側でも系列が確認できます。</p>
-<p><a class="glightbox" href="../images/setup03/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-14.png" /></a></p>
-</div>
-<h2 id="_6">関連リンク</h2>
 <ul>
-<li><a href="https://learn.microsoft.com/ja-jp/purview/concept-domains">Dummy</a></li>
+<li>操作対象ソリューションはデータマップです。</li>
+<li>このモジュールではMarketドメインの管理者が操作をします。</li>
+</ul>
+</div>
+<h2 id="purviewid">PurviewアカウントのマネージドIDへのロール付与</h2>
+<ol>
+<li>
+<p>SQL Serverの<strong>アクセス制御</strong>から<strong>追加</strong>を選択し、<strong>ロールの割り当て追加</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module03/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>閲覧者</strong>を選択します。</p>
+<p><a class="glightbox" href="../images/module03/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-1.png" width="90%" /></a></p>
+</li>
+<li>
+<p>アクセスの割当先を選択します。</p>
+<p>メンバーに Purview アカウントのマネージドID を追加します。</p>
+<p><a class="glightbox" href="../images/module03/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-2.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>レビューと割り当て</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module03/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-3.png" width="90%" /></a></p>
+</li>
+</ol>
+<h2 id="sql-servermicrosoft-entra">SQL ServerのMicrosoft Entra管理者設定</h2>
+<ol>
+<li>
+<p>SQL Serverの<strong>Microsoft Entra ID</strong>から<strong>管理者の設定</strong>を選択します。</p>
+<p><a class="glightbox" href="../images/module03/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-4.png" width="90%" /></a></p>
+</li>
+<li>
+<p>Marketドメインの管理者を選択し保存します。</p>
+<p><a class="glightbox" href="../images/module03/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-5.png" width="90%" /></a></p>
+</li>
+</ol>
+<h2 id="id">マネージドIDへのアクセス許可設定</h2>
+<ol>
+<li>
+<p><strong>SQL データベース</strong>からデータベースを選択します。</p>
+<p><a class="glightbox" href="../images/module03/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-6.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>クエリー エディター</strong>からEntra認証でログインします。</p>
+<p><a class="glightbox" href="../images/module03/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-7.png" width="90%" /></a></p>
+</li>
+<li>
+<p>次のクエリを入力し実行します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="p">[</span><span class="n">Purview</span><span class="w"> </span><span class="err">マネージド</span><span class="n">ID名</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">EXTERNAL</span><span class="w"> </span><span class="n">PROVIDER</span>
+<span class="k">GO</span>
+
+<span class="k">EXEC</span><span class="w"> </span><span class="n">sp_addrolemember</span><span class="w"> </span><span class="s1">&#39;db_datareader&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">Purview</span><span class="w"> </span><span class="err">マネージド</span><span class="n">ID名</span><span class="p">]</span>
+<span class="k">GO</span>
+</code></pre></div>
+<p><a class="glightbox" href="../images/module03/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-8.png" width="90%" /></a></p>
+</li>
+<li>
+<p>クエリが成功したら、ViewのLineage取得用に次のクエリを入力し実行します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">EXEC</span><span class="w"> </span><span class="n">sp_addrolemember</span><span class="w"> </span><span class="s1">&#39;db_owner&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">Purview</span><span class="w"> </span><span class="err">マネージド</span><span class="n">ID名</span><span class="p">]</span>
+<span class="k">GO</span>
+
+<span class="k">Create</span><span class="w"> </span><span class="n">master</span><span class="w"> </span><span class="k">key</span>
+<span class="k">GO</span>
+</code></pre></div>
+<p><a class="glightbox" href="../images/module03/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-9.png" width="90%" /></a></p>
+</li>
+</ol>
+<h2 id="azure-sql-database">Azure SQL Databaseの登録</h2>
+<ol>
+<li>
+<p>Purview アカウントの<a href="https://web.purview.azure.com/">ポータル</a>へアクセスします。</p>
+<p><a href="https://web.purview.azure.com/">https://web.purview.azure.com/</a></p>
+<p><a class="glightbox" href="../images/module03/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-10.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>データマップ</strong>を選択します。</p>
+<p><a class="glightbox" href="../images/module03/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-11.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>データソース</strong>から<strong>Marketingコレクション</strong>の<strong>登録アイコン</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module03/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-12.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>Azure</strong> をクリックし <strong>Azure SQL Database</strong> を選択し続行します。</p>
+<p><a class="glightbox" href="../images/module03/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-13.png" width="90%" /></a></p>
+</li>
+<li>
+<p>SQL Databaseの情報を入力、<strong>データポリシーの適用</strong>を<strong>オフ</strong>にして登録します。</p>
+<p><a class="glightbox" href="../images/module03/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-14.png" width="90%" /></a></p>
+</li>
+</ol>
+<h2 id="azure-sql-database_1">Azure SQL Databaseのスキャン</h2>
+<ol>
+<li>
+<p><strong>スキャンアイコン</strong> をクリックします。</p>
+<p><a class="glightbox" href="../images/module03/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-15.png" width="80%" /></a></p>
+</li>
+<li>
+<p>スキャン名を入力しデータベースを選択、<strong>系列の抽出</strong>をオンにします。</p>
+<p><a class="glightbox" href="../images/module03/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-16.png" width="90%" /></a></p>
+<p><strong>接続のテスト</strong> をクリック、テストが成功したら続行します。</p>
+<p><a class="glightbox" href="../images/module03/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-17.png" width="90%" /></a></p>
+</li>
+<li>
+<p><code>Workshop</code>でフィルタし、スキャン対象を選択して続行します。</p>
+<p><a class="glightbox" href="../images/module03/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-18.png" width="90%" /></a></p>
+</li>
+<li>
+<p>既定の<strong>スキャン ルール セット</strong>を選択して続行します。</p>
+<p><a class="glightbox" href="../images/module03/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-19.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>一度だけ</strong>を選択し続行します。</p>
+<p><a class="glightbox" href="../images/module03/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-20.png" width="90%" /></a></p>
+</li>
+<li>
+<p>スキャンの内容を確認し<strong>保存して実行</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module03/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-21.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>詳細の表示</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module03/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-22.png" width="80%" /></a></p>
+</li>
+<li>
+<p>正常にスキャンが行われるとスキャンの状態が<strong>完了済み</strong>になります。</p>
+<p><a class="glightbox" href="../images/module03/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-23.png" width="90%" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>正常にスキャンが行われると次のテーブルとビューが登録されます。<ul>
+<li>Transactions</li>
+<li>vw_MonthlyPurchaseTrend</li>
+<li>vw_PaymentMethodStats</li>
+<li>vw_TransactionAggregates</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>表示例</p>
+<p><a class="glightbox" href="../images/module03/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module03/image-24.png" width="90%" /></a></p>
+</li>
+</ol>
+<h2 id="_5">関連リンク</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/purview/register-scan-azure-sql-database?tabs=managed-identity">Microsoft Purview でデータベースAzure SQL検出して管理する</a></li>
 </ul>
 
 

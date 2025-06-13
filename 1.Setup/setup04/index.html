@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../module01/">
+        <link rel="prev" href="../setup03/">
       
       
-        <link rel="next" href="../module03/">
+        <link rel="next" href="../../2.DataMap/module01/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>M02. Azure Data Lake Storage Gen2の登録とスキャン - Microsoft Purview Data Governance Workshop JP</title>
+        <title>Purview アカウントのセットアップ - Microsoft Purview Data Governance Workshop JP</title>
       
     
     
@@ -93,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#m02-azure-data-lake-storage-gen2" class="md-skip">
+        <a href="#purview" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              M02. Azure Data Lake Storage Gen2の登録とスキャン
+              Purview アカウントのセットアップ
             
           </span>
         </div>
@@ -258,8 +258,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -269,11 +271,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -287,7 +289,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             1.Setup
@@ -301,7 +303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1.Setup/setup01/" class="md-nav__link">
+      <a href="../setup01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -322,81 +324,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1.Setup/setup03/" class="md-nav__link">
+      <a href="../setup03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     S03. データ資産の作成と設定
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    2.Modules
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            2.Modules
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module01/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    M01. テクニカル ドメインとコレクションの作成
   </span>
   
 
@@ -426,7 +358,7 @@
           
   
   <span class="md-ellipsis">
-    M02. Azure Data Lake Storage Gen2の登録とスキャン
+    Purview アカウントのセットアップ
   </span>
   
 
@@ -437,7 +369,7 @@
         
   
   <span class="md-ellipsis">
-    M02. Azure Data Lake Storage Gen2の登録とスキャン
+    Purview アカウントのセットアップ
   </span>
   
 
@@ -459,78 +391,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#purview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purview アカウントの作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      はじめに
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="はじめに">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      📢 導入
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      🤔 前提条件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎯 ゴール
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#purview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Purviewへのロール付与
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#azure-data-lake-storage-gen2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Azure Data Lake Storage Gen2の登録
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#azure-data-lake-storage-gen2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Azure Data Lake Storage Gen2のスキャン
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      関連リンク
+      ロールの付与
     </span>
   </a>
   
@@ -545,6 +417,53 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    2.DataMap
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            2.DataMap
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -552,11 +471,142 @@
   
   
     <li class="md-nav__item">
-      <a href="../module03/" class="md-nav__link">
+      <a href="../../2.DataMap/module01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    M03. Azure SQL Databaseの登録とスキャン
+    D01. テクニカル ドメインとコレクションの作成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.DataMap/module02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    D02. Azure Data Lake Storage Gen2の登録とスキャン
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.DataMap/module03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    D03. Azure SQL Databaseの登録とスキャン
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.DataMap/module04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    D04. データ資産のキュレーション
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    3.Unified Catalog
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            3.Unified Catalog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.Unified%20Catalog/module99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 99 - 雛形
   </span>
   
 
@@ -600,78 +650,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#purview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purview アカウントの作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      はじめに
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="はじめに">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      📢 導入
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      🤔 前提条件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎯 ゴール
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#purview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Purviewへのロール付与
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#azure-data-lake-storage-gen2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Azure Data Lake Storage Gen2の登録
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#azure-data-lake-storage-gen2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Azure Data Lake Storage Gen2のスキャン
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      関連リンク
+      ロールの付与
     </span>
   </a>
   
@@ -692,117 +682,11 @@
                   
 
 
-<h1 id="m02-azure-data-lake-storage-gen2">M02. Azure Data Lake Storage Gen2の登録とスキャン</h1>
-<h2 id="_1">はじめに</h2>
-<h3 id="_2">📢 導入</h3>
-<p>このモジュールでは、。。。</p>
-<h3 id="_3">🤔 前提条件</h3>
-<ul>
-<li>Microsoft Purview アカウント</li>
-<li>Purview アカウント所有者を持つユーザー</li>
-<li>Salesドメイン、Marketingドメインのカタログ管理者を想定したEntra IDユーザー</li>
-</ul>
-<h3 id="_4">🎯 ゴール</h3>
-<ul>
-<li>新しいテクニカル ドメインを作成する</li>
-<li>コレクションを2つ作成する</li>
-<li>各コレクションの管理者にロールを設定する</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li>操作対象ソリューションはデータマップです。</li>
-</ul>
-</div>
-<h2 id="purview">Purviewへのロール付与</h2>
-<details class="warning">
-<summary>ここからは Purview アカウントの所有者 が操作します。</summary>
-</details>
-<ol>
-<li>
-<p>ストレージアカウントの アクセス制御 から 追加 をクリックし、ロールの割り当て追加をクリックします。</p>
-<p><a class="glightbox" href="../images/module02/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image.png" width="90%" /></a></p>
-</li>
-<li>
-<p>ストレージ Blob データ管理者</p>
-<p><a class="glightbox" href="../images/module02/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-1.png" width="90%" /></a></p>
-</li>
-<li>
-<p>あ</p>
-<p>Purviewへ</p>
-<p><a class="glightbox" href="../images/module02/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-2.png" width="90%" /></a></p>
-<p>Salesドメイン管理者へ</p>
-<p><a class="glightbox" href="../images/module02/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-3.png" width="90%" /></a></p>
-</li>
-</ol>
-<h2 id="azure-data-lake-storage-gen2">Azure Data Lake Storage Gen2の登録</h2>
-<details class="warning">
-<summary>ここからは Salesドメイン管理者 が操作します。</summary>
-</details>
-<ol>
-<li>
-<p>ポータル</p>
-<p>https://web.purview.azure.com/</p>
-<p><a class="glightbox" href="../images/module02/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-5.png" width="90%" /></a></p>
-</li>
-<li>
-<p>データマップ</p>
-<p><a class="glightbox" href="../images/module02/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-4.png" width="80%" /></a></p>
-</li>
-<li>
-<p>登録</p>
-<p><a class="glightbox" href="../images/module02/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-6.png" width="90%" /></a></p>
-</li>
-<li>
-<p>選択</p>
-<p><a class="glightbox" href="../images/module02/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-7.png" width="90%" /></a></p>
-</li>
-<li>
-<p>登録</p>
-<p><a class="glightbox" href="../images/module02/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-8.png" width="90%" /></a></p>
-</li>
-</ol>
-<h2 id="azure-data-lake-storage-gen2_1">Azure Data Lake Storage Gen2のスキャン</h2>
-<ol>
-<li>
-<p>スキャンアイコン</p>
-<p><a class="glightbox" href="../images/module02/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-9.png" width="80%" /></a></p>
-</li>
-<li>
-<p>設定</p>
-<p><a class="glightbox" href="../images/module02/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-10.png" width="90%" /></a></p>
-</li>
-<li>
-<p>ファイル確認</p>
-<p><a class="glightbox" href="../images/module02/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-11.png" width="90%" /></a></p>
-</li>
-<li>
-<p>スキャンルールセット</p>
-<p><a class="glightbox" href="../images/module02/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-12.png" width="90%" /></a></p>
-</li>
-<li>
-<p>スケジュール</p>
-<p><a class="glightbox" href="../images/module02/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-13.png" width="90%" /></a></p>
-</li>
-<li>
-<p>実行</p>
-<p><a class="glightbox" href="../images/module02/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-14.png" width="90%" /></a></p>
-</li>
-<li>
-<p>確認</p>
-<p><a class="glightbox" href="../images/module02/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-15.png" width="80%" /></a></p>
-</li>
-<li>
-<p>完了</p>
-<p><a class="glightbox" href="../images/module02/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module02/image-16.png" width="90%" /></a></p>
-</li>
-</ol>
-<p>1.
-1.</p>
-<h2 id="_5">関連リンク</h2>
-<ul>
-<li><a href="https://learn.microsoft.com/ja-jp/purview/concept-domains">Domains in the Microsoft Purview Data Map</a></li>
-</ul>
+<h1 id="purview">Purview アカウントのセットアップ</h1>
+<h2 id="purview_1">Purview アカウントの作成</h2>
+<p><a class="glightbox" href="../images/setup01/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup01/image.png" /></a></p>
+<h2 id="_1">ロールの付与</h2>
+<p>あああ</p>
 
 
 
