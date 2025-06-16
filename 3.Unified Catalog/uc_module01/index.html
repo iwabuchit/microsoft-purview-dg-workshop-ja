@@ -18,7 +18,7 @@
     
     
       
-        <title>Module 99 - 雛形 - Microsoft Purview Data Governance Workshop JP</title>
+        <title>U01.ガバナンス ドメインの作成 - Microsoft Purview Data Governance Workshop JP</title>
       
     
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#module-99-" class="md-skip">
+        <a href="#u01" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Module 99 - 雛形
+              U01.ガバナンス ドメインの作成
             
           </span>
         </div>
@@ -555,7 +555,7 @@
           
   
   <span class="md-ellipsis">
-    Module 99 - 雛形
+    U01.ガバナンス ドメインの作成
   </span>
   
 
@@ -566,7 +566,7 @@
         
   
   <span class="md-ellipsis">
-    Module 99 - 雛形
+    U01.ガバナンス ドメインの作成
   </span>
   
 
@@ -632,16 +632,16 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      権限の付与
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#grid" class="md-nav__link">
+  <a href="#sales" class="md-nav__link">
     <span class="md-ellipsis">
-      grid
+      Sales部門用のガバナンス ドメイン作成
     </span>
   </a>
   
@@ -649,6 +649,51 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      データ製品の作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      用語の作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cde" class="md-nav__link">
+    <span class="md-ellipsis">
+      CDE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marketing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marketing部門用のガバナンスドメイン作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -743,16 +788,16 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      権限の付与
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#grid" class="md-nav__link">
+  <a href="#sales" class="md-nav__link">
     <span class="md-ellipsis">
-      grid
+      Sales部門用のガバナンス ドメイン作成
     </span>
   </a>
   
@@ -760,6 +805,51 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      データ製品の作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      用語の作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cde" class="md-nav__link">
+    <span class="md-ellipsis">
+      CDE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marketing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marketing部門用のガバナンスドメイン作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -782,7 +872,7 @@
                   
 
 
-<h1 id="module-99-">Module 99 - 雛形</h1>
+<h1 id="u01">U01.ガバナンス ドメインの作成</h1>
 <h2 id="_1">はじめに</h2>
 <h3 id="_2">📢 導入</h3>
 <h3 id="_3">🤔 前提条件</h3>
@@ -799,28 +889,52 @@
 <li>データカタログのアセットに用語を割り当てる</li>
 <li>既存の用語を関連用語と連絡先で更新する</li>
 </ul>
-<h2 id="_5"></h2>
-<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/templates/template.json">deploy</a></p>
-<p><a class="glightbox" href="./images/module99/2023-11-08-18-57-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="./images/module99/2023-11-08-18-57-34.png" /></a></p>
-<p><a class="glightbox" href="favicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="favicon.png" /></a></p>
-<p><a class="glightbox" href="images/module99/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/module99/image.png" /></a></p>
-<p><a class="glightbox" href="images/module99/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/module99/image-1.png" /></a></p>
-<h2 id="grid">grid</h2>
-<div class="grid">
-<p><a class="glightbox" href="image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="image.png" /></a></p>
-<div class="highlight"><span class="filename">Content tabs</span><pre><span></span><code>1. システム・デフォルト用語テンプレートを使用して、用語集に用語を作成する
-2. カスタム用語テンプレートを使用して用語集に用語を作成する
-3. CSVファイルを使用して用語を用語集に一括インポートする
-</code></pre></div>
-<p><a class="glightbox" href="image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="image.png" /></a></p>
-<ol>
-<li>CSVファイルを使用して用語を用語集に一括インポートする</li>
-<li>CSVファイルを使用して用語を用語集に一括インポートする
-<div class="highlight"><pre><span></span><code>bbb
-</code></pre></div></li>
-</ol>
+<h2 id="_5">権限の付与</h2>
+<h2 id="sales">Sales部門用のガバナンス ドメイン作成</h2>
+<p>Salesドメイン
+ワークショップ用Salesドメイン
+Sales部門用のガバナンス ドメイン。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 </div>
-<h2 id="_6">関連リンク</h2>
+<p>タイプは、ガバナンスドメインの目的を示す追加記述子です。 タイプによる動作の違いはない。</p>
+<p>機能単位(Functional unit)
+業種(line of business)
+データドメイン(data domain)
+規制(regulatory)
+プロジェクト(project)</p>
+<h2 id="_6">データ製品の作成</h2>
+<p>ECサイトのトランザクションデータセット</p>
+<p>このデータ製品は、ドイツ、日本、アメリカにおけるEコマース取引情報を統合したものであり、以下の3つのParquetファイルで構成されています。</p>
+<p>ecommerce_transactions_germany.parquet
+ecommerce_transactions_japan.parquet
+ecommerce_transactions_usa.parquet</p>
+<p>各ファイルには、ユーザーの属性情報と取引に関する詳細が含まれており、グローバルな購買行動の分析や、国別のマーケティング施策の立案に活用できます。</p>
+<h2 id="_7">用語の作成</h2>
+<p>Eコマース取引
+オンラインプラットフォーム上で行われた商品の購入・販売に関する取引データ。国別に分かれており、グローバルな購買傾向の分析に活用可能。</p>
+<p>支払い方法
+クレジットカード、PayPal、銀行振込など、取引に使用された決済手段。</p>
+<h2 id="cde">CDE</h2>
+<h2 id="product">Product</h2>
+<ol>
+<li>ポリシー</li>
+</ol>
+<p>機械学習モデルの学習  購買予測やレコメンデーションなどのモデル構築におけるトレーニングデータとして利用するため。</p>
+<p>品質・異常検知 不正取引や異常な購買パターンの検出など、データ品質やセキュリティの観点での分析に使用するため。</p>
+<h2 id="marketing">Marketing部門用のガバナンスドメイン作成</h2>
+<ol>
+<li>
+<p>データ製品の作成</p>
+</li>
+<li>
+<p>用語集の作成</p>
+</li>
+<li>
+<p>重要なデータ要素の作成</p>
+</li>
+</ol>
+<h2 id="_8">関連リンク</h2>
 <p>https://learn.microsoft.com/ja-jp/purview/concept-domains</p>
 
 
