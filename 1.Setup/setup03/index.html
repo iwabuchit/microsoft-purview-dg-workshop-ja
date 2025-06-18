@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../setup01/">
+        <link rel="prev" href="../setup02/">
       
       
-        <link rel="next" href="../setup04/">
+        <link rel="next" href="../../2.DataMap/module01/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>S02. データ資産の作成と設定 - Microsoft Purview Data Governance Workshop JP</title>
+        <title>S03. データ資産の作成と設定 - Microsoft Purview Data Governance Workshop JP</title>
       
     
     
@@ -93,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#s02" class="md-skip">
+        <a href="#s03" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              S02. データ資産の作成と設定
+              S03. データ資産の作成と設定
             
           </span>
         </div>
@@ -321,6 +321,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S02. Purview アカウントのセットアップ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -337,7 +358,7 @@
           
   
   <span class="md-ellipsis">
-    S02. データ資産の作成と設定
+    S03. データ資産の作成と設定
   </span>
   
 
@@ -348,7 +369,7 @@
         
   
   <span class="md-ellipsis">
-    S02. データ資産の作成と設定
+    S03. データ資産の作成と設定
   </span>
   
 
@@ -412,15 +433,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      ソースファイルのアップロード
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#azure-data-factoryadf" class="md-nav__link">
     <span class="md-ellipsis">
       Azure Data Factory(ADF)の登録とパイプラインの実行
@@ -430,7 +442,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -442,27 +454,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../setup04/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Purview アカウントのセットアップ
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -743,15 +734,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      ソースファイルのアップロード
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#azure-data-factoryadf" class="md-nav__link">
     <span class="md-ellipsis">
       Azure Data Factory(ADF)の登録とパイプラインの実行
@@ -761,7 +743,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -784,7 +766,7 @@
                   
 
 
-<h1 id="s02">S02. データ資産の作成と設定</h1>
+<h1 id="s03">S03. データ資産の作成と設定</h1>
 <h2 id="_1">はじめに</h2>
 <h3 id="_2">📢 導入</h3>
 <p>このモジュールでは、。。。データ資産を作成します。</p>
@@ -796,8 +778,13 @@
 </ul>
 <h2 id="_4">データ資産の作成</h2>
 <p>以下をクリックしてデータ資産を作成します。</p>
-<p><a href="./dummy.png">デプロイ</a>http://127.0.0.1:8000/2.Modules/module01/</p>
 <ol>
+<li>
+<p>下記のアイコンを <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + クリックしてAzureポータルを開きます。</p>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fiwabuchit.github.io%2Fmicrosoft-purview-dg-workshop-ja%2F1.Setup%2Ftemplates%2Ftemplate.json"><img alt="Deploy to Azure" src="../images/deploy.png" /></a></p>
+<p>もしくは、下記のURLからAzureポータルを開きます。
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fiwabuchit.github.io%2Fmicrosoft-purview-dg-workshop-ja%2F1.Setup%2Ftemplates%2Ftemplate.json">https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fiwabuchit.github.io%2Fmicrosoft-purview-dg-workshop-ja%2F1.Setup%2Ftemplates%2Ftemplate.json</a></p>
+</li>
 <li>
 <p>デプロイが完了したら作成したリソースグループの <strong>アクセス制御</strong> から <strong>+追加</strong> をクリックし <strong>ロールの割り当ての追加</strong> を選択します。</p>
 <p><a class="glightbox" href="../images/setup03/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-15.png" width="90%" /></a></p>
@@ -817,25 +804,6 @@
 <p><a class="glightbox" href="../images/setup03/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-20.png" width="90%" /></a></p>
 </li>
 </ol>
-<h2 id="_5">ソースファイルのアップロード</h2>
-<ol>
-<li>
-<p><a href="../../files/">ここ</a>からファイルをダウンロードしコンテナにアップロードします。</p>
-<p><a class="glightbox" href="../images/setup03/image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>dataset</strong>コンテナをクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-4.png" width="90%" /></a></p>
-</li>
-<li>
-<p><strong>アップロード</strong>をクリックしファイルを選択して<strong>アップロード</strong>をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-2.png" width="90%" /></a></p>
-</li>
-<li>
-<p>アップロードが成功したことを確認します。</p>
-<p><a class="glightbox" href="../images/setup03/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-1.png" width="90%" /></a></p>
-</li>
-</ol>
 <h2 id="azure-data-factoryadf">Azure Data Factory(ADF)の登録とパイプラインの実行</h2>
 <ol>
 <li>
@@ -848,7 +816,7 @@
 </li>
 <li>
 <p><strong>管理</strong> から <strong>Microsoft Purview</strong> を選択し、<strong>Purview アカウントに接続</strong> をクリックしPurviewアカウントを選択して <strong>適用</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-6.png" width="90%" /></a></p>
+<p><a class="glightbox" href="../images/setup03/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-6.png" /></a></p>
 </li>
 <li>
 <p>正常に接続されたことを確認します。</p>
@@ -859,7 +827,7 @@
 <details class="warning">
 <summary>ここでは Purview ガバナンス ポータル を操作します。</summary>
 </details>
-<p><a class="glightbox" href="../images/setup03/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-8.png" width="90%" /></a></p>
+<p><a class="glightbox" href="../images/setup03/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-8.png" /></a></p>
 </li>
 <li>
 <p>ADFのマネージドIDを検索、追加し <strong>OK</strong> をクリックします。</p>
@@ -870,7 +838,7 @@
 <details class="warning">
 <summary>ここでは ADF Studio を操作します。</summary>
 </details>
-<p><a class="glightbox" href="../images/setup03/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-10.png" width="90%" /></a></p>
+<p><a class="glightbox" href="../images/setup03/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-10.png" /></a></p>
 </li>
 <li>
 <p><strong>OK</strong> をクリックします。</p>
@@ -888,9 +856,9 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>系列のプッシュが成功すると Purview DG 側でも系列が確認できます。</p>
-<p><a class="glightbox" href="../images/setup03/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-14.png" /></a></p>
+<p><a class="glightbox" href="images/setup03/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/setup03/image-14.png" /></a></p>
 </div>
-<h2 id="_6">関連リンク</h2>
+<h2 id="_5">関連リンク</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/ja-jp/purview/concept-domains">Dummy</a></li>
 </ul>
