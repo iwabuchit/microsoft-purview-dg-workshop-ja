@@ -18,7 +18,7 @@
     
     
       
-        <title>U01.ガバナンス ドメインの作成 - Microsoft Purview Data Governance Workshop JP</title>
+        <title>U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン) - Microsoft Purview Data Governance Workshop JP</title>
       
     
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#u01" class="md-skip">
+        <a href="#u01-sales" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              U01.ガバナンス ドメインの作成
+              U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)
             
           </span>
         </div>
@@ -324,7 +324,7 @@
         
   
   <span class="md-ellipsis">
-    S03. データ資産の作成と設定
+    S02. データ資産の作成と設定
   </span>
   
 
@@ -555,7 +555,7 @@
           
   
   <span class="md-ellipsis">
-    U01.ガバナンス ドメインの作成
+    U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)
   </span>
   
 
@@ -566,7 +566,7 @@
         
   
   <span class="md-ellipsis">
-    U01.ガバナンス ドメインの作成
+    U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)
   </span>
   
 
@@ -650,7 +650,7 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      データ製品の作成
+      用語の作成
     </span>
   </a>
   
@@ -659,34 +659,7 @@
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      用語の作成
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cde" class="md-nav__link">
-    <span class="md-ellipsis">
-      CDE
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#product" class="md-nav__link">
-    <span class="md-ellipsis">
-      Product
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#marketing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Marketing部門用のガバナンスドメイン作成
+      重要なデータ要素の作成
     </span>
   </a>
   
@@ -694,6 +667,24 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      データ製品の作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      データ製品のアクセスポリシー設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -806,7 +797,7 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      データ製品の作成
+      用語の作成
     </span>
   </a>
   
@@ -815,34 +806,7 @@
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      用語の作成
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cde" class="md-nav__link">
-    <span class="md-ellipsis">
-      CDE
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#product" class="md-nav__link">
-    <span class="md-ellipsis">
-      Product
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#marketing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Marketing部門用のガバナンスドメイン作成
+      重要なデータ要素の作成
     </span>
   </a>
   
@@ -850,6 +814,24 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      データ製品の作成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      データ製品のアクセスポリシー設定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -872,70 +854,300 @@
                   
 
 
-<h1 id="u01">U01.ガバナンス ドメインの作成</h1>
+<h1 id="u01-sales">U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)</h1>
 <h2 id="_1">はじめに</h2>
 <h3 id="_2">📢 導入</h3>
+<p>このモジュールでは、Microsoft Purview を活用して、Sales部門向けのガバナンス ドメインとビジネス用語の定義を行う方法を学びます。データガバナンスの基盤となるドメインの作成から、用語や重要なデータ要素の定義、データ製品の構築、アクセスポリシーの設定まで、実践的なステップを通じて理解を深めます。</p>
 <h3 id="_3">🤔 前提条件</h3>
 <ul>
-<li>アクティブなサブスクリプションを持つAzureアカウント</li>
-<li>Microsoft Purview アカウント (Module 01 を参照)</li>
+<li>D04. データ資産のキュレーション</li>
 </ul>
 <h3 id="_4">🎯 ゴール</h3>
 <ul>
-<li>システム・デフォルト用語テンプレートを使用して、用語集に用語を作成する</li>
-<li>カスタム用語テンプレートを使用して用語集に用語を作成する</li>
-<li>CSVファイルを使用して用語を用語集に一括インポートする</li>
-<li>用語集からCSVファイルに用語を一括エクスポートする</li>
-<li>データカタログのアセットに用語を割り当てる</li>
-<li>既存の用語を関連用語と連絡先で更新する</li>
+<li>Sales部門向けのガバナンス ドメインを新規作成する</li>
+<li>ビジネス用語と重要なデータ要素を定義し、関連付ける</li>
+<li>EC取引データを統合したデータ製品を作成する</li>
+<li>データ製品に対するアクセスポリシーを設定し、利用目的と許諾情報を構成する</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>操作対象ソリューションは統合カタログです。</li>
+<li>このモジュールでは主にSalesドメインの管理者が操作をします。</li>
+</ul>
+</div>
 <h2 id="_5">権限の付与</h2>
+<div class="admonition warning">
+<p class="admonition-title">このセクションは<strong>データ ガバナンス管理者</strong>が操作をします。</p>
+</div>
+<ol>
+<li>
+<p><strong>設定</strong>から<strong>統合カタログ</strong>の<strong>Roles and permissions</strong>を選択し<strong>ガバナンス ドメイン作成者</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-3.png" /></a></p>
+</li>
+<li>
+<p>Salesドメインの管理者とMarketingドメインの管理者を追加します。</p>
+<p><a class="glightbox" href="../images/module01/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-1.png" width="90%" /></a></p>
+</li>
+</ol>
 <h2 id="sales">Sales部門用のガバナンス ドメイン作成</h2>
-<p>Salesドメイン
-ワークショップ用Salesドメイン
-Sales部門用のガバナンス ドメイン。</p>
+<div class="admonition warning">
+<p class="admonition-title">このセクション以降はSalesドメインの管理者が操作をします。</p>
+</div>
+<ol>
+<li>
+<p><strong>ガバナンス ドメイン</strong>から<strong>新しいガバナンス ドメイン</strong>を選択します。</p>
+<p><a class="glightbox" href="../images/module01/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-5.png" /></a></p>
+</li>
+<li>
+<p><strong>名前</strong>、<strong>説明</strong>を入力し<strong>種類</strong>から<strong>業種</strong>を選択し作成します。</p>
+<div class="grid" markdown>
+<p>名前</p>
+<div class="highlight"><pre><span></span><code>ワークショップ用Salesドメイン
+</code></pre></div>
+<p>説明</p>
+<div class="highlight"><pre><span></span><code>Sales部門用のガバナンス ドメイン。
+</code></pre></div>
+</div>
+<p><a class="glightbox" href="../images/module01/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-4.png" width="90%" /></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
+<p>種類は、ガバナンス ドメインの目的を示す追加記述子です。以下の種類が選択できますが種類による動作の違いはありません。</p>
+<ul>
+<li>機能単位(Functional unit)</li>
+<li>業種(line of business)</li>
+<li>データドメイン(data domain)</li>
+<li>規制(regulatory)</li>
+<li>プロジェクト(project)</li>
+</ul>
 </div>
-<p>タイプは、ガバナンスドメインの目的を示す追加記述子です。 タイプによる動作の違いはない。</p>
-<p>機能単位(Functional unit)
-業種(line of business)
-データドメイン(data domain)
-規制(regulatory)
-プロジェクト(project)</p>
-<h2 id="_6">データ製品の作成</h2>
-<p>ECサイトのトランザクションデータセット</p>
-<p>このデータ製品は、ドイツ、日本、アメリカにおけるEコマース取引情報を統合したものであり、以下の3つのParquetファイルで構成されています。</p>
-<p>ecommerce_transactions_germany.parquet
+</li>
+<li>
+<p>次の画面のようにガバナンス ドメインが作成されます。</p>
+<p><a class="glightbox" href="../images/module01/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-7.png" /></a></p>
+</li>
+</ol>
+<h2 id="_6">用語の作成</h2>
+<ol>
+<li>
+<p><strong>用語集の用語</strong>から<strong>全て表示</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-8.png" width="90%" /></a></p>
+</li>
+<li>
+<p><strong>新しい用語</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-9.png" width="90%" /></a></p>
+</li>
+<li>
+<p>次の情報を入力し<strong>次へ</strong>をクリックします。</p>
+<div class="grid" markdown>
+<p>名前</p>
+<div class="highlight"><pre><span></span><code>Eコマース取引
+</code></pre></div>
+<p>説明</p>
+<div class="highlight"><pre><span></span><code>オンラインプラットフォーム上で行われた商品の購入・販売に関する取引データ。国別に分かれており、グローバルな購買傾向の分析に活用可能。
+</code></pre></div>
+<p>所有者</p>
+<div class="highlight"><pre><span></span><code>Sales部門の管理者
+</code></pre></div>
+</div>
+<p><a class="glightbox" href="../images/module01/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-10.png" /></a></p>
+</li>
+<li>
+<p><strong>次へ</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-11.png" /></a></p>
+</li>
+<li>
+<p><strong>作成</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-12.png" /></a></p>
+</li>
+<li>
+<p>用語が作成されたことを確認します。</p>
+<p><a class="glightbox" href="../images/module01/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-13.png" /></a></p>
+</li>
+<li>
+<p>同じ要領で用語をもう一つ作成します。</p>
+<div class="grid" markdown>
+<p>名前</p>
+<div class="highlight"><pre><span></span><code>支払い方法
+</code></pre></div>
+<p>説明</p>
+<div class="highlight"><pre><span></span><code>クレジットカード、PayPal、銀行振込など、取引に使用された決済手段。
+</code></pre></div>
+<p>所有者</p>
+<div class="highlight"><pre><span></span><code>Sales部門の管理者
+</code></pre></div>
+</div>
+<p><a class="glightbox" href="../images/module01/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-14.png" /></a></p>
+</li>
+<li>
+<p>用語が作成されたら、<strong>関連</strong>から<strong>用語の追加</strong>をクリックし<strong>関連</strong>を選択します。</p>
+<p><a class="glightbox" href="../images/module01/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-15.png" /></a></p>
+</li>
+<li>
+<p>前に作成した用語をチェックし追加します。</p>
+<p><a class="glightbox" href="../images/module01/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-16.png" width="80%" /></a></p>
+</li>
+<li>
+<p>関連が設定されたら<strong>公開</strong>します。</p>
+<p><a class="glightbox" href="../images/module01/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-17.png" width="80%" /></a></p>
+</li>
+</ol>
+<h2 id="_7">重要なデータ要素の作成</h2>
+<ol>
+<li>
+<p><strong>重要なデータ要素</strong>から<strong>全て表示</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-18.png" /></a></p>
+</li>
+<li>
+<p><strong>新しい重要なデータ要素</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-19.png" width="90%" /></a></p>
+</li>
+<li>
+<p>次の情報を入力して作成します。</p>
+<div class="grid" markdown>
+<p>名前</p>
+<div class="highlight"><pre><span></span><code>取引金額
+</code></pre></div>
+<p>説明</p>
+<div class="highlight"><pre><span></span><code>各取引の金額情報。通貨単位はシステム依存で、売上集計や平均購入額の算出に使用される。
+</code></pre></div>
+<p>所有者</p>
+<div class="highlight"><pre><span></span><code>Sales部門の管理者
+</code></pre></div>
+<p>必要なデータ型</p>
+<div class="highlight"><pre><span></span><code>数値
+</code></pre></div>
+</div>
+<p><a class="glightbox" href="../images/module01/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-20.png" width="90%" /></a></p>
+</li>
+<li>
+<p>重要なデータ要素に列を追加します。</p>
+<p><a class="glightbox" href="../images/module01/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-21.png" /></a></p>
+</li>
+<li>
+<p>ecommerce_transactions_germany.parquet を選択します。</p>
+<p><a class="glightbox" href="../images/module01/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-22.png" /></a></p>
+</li>
+<li>
+<p>Purchase_Amount 列を選択します。</p>
+<p><a class="glightbox" href="../images/module01/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-23.png" width="90%" /></a></p>
+</li>
+<li>
+<p>同じ要領で ecommerce_transactions_japan.parquet と ecommerce_transactions_usa.parquet の Purchase_Amount 列を追加し公開します。</p>
+<p><a class="glightbox" href="../images/module01/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-24.png" width="90%" /></a></p>
+</li>
+</ol>
+<h2 id="_8">データ製品の作成</h2>
+<ol>
+<li>
+<p><strong>データ製品</strong>から<strong>全て表示</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-25.png" /></a></p>
+</li>
+<li>
+<p>次の情報を入力して作成します。</p>
+<div class="grid" markdown>
+<p>名前</p>
+<div class="highlight"><pre><span></span><code>ECサイトのトランザクションデータセット
+</code></pre></div>
+<p>説明</p>
+<div class="highlight"><pre><span></span><code>このデータ製品は、ドイツ、日本、アメリカにおけるEコマース取引情報を統合したものであり、以下の3つのParquetファイルで構成されています。
+
+ecommerce_transactions_germany.parquet
 ecommerce_transactions_japan.parquet
-ecommerce_transactions_usa.parquet</p>
-<p>各ファイルには、ユーザーの属性情報と取引に関する詳細が含まれており、グローバルな購買行動の分析や、国別のマーケティング施策の立案に活用できます。</p>
-<h2 id="_7">用語の作成</h2>
-<p>Eコマース取引
-オンラインプラットフォーム上で行われた商品の購入・販売に関する取引データ。国別に分かれており、グローバルな購買傾向の分析に活用可能。</p>
-<p>支払い方法
-クレジットカード、PayPal、銀行振込など、取引に使用された決済手段。</p>
-<h2 id="cde">CDE</h2>
-<h2 id="product">Product</h2>
-<ol>
-<li>ポリシー</li>
+ecommerce_transactions_usa.parquet
+</code></pre></div>
+<p>種類</p>
+<div class="highlight"><pre><span></span><code>データセット
+</code></pre></div>
+<p>対象ユーザー</p>
+<div class="highlight"><pre><span></span><code>データエンジニア
+</code></pre></div>
+<p>所有者</p>
+<div class="highlight"><pre><span></span><code>Sales部門の管理者
+</code></pre></div>
+</div>
+<p><a class="glightbox" href="../images/module01/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-26.png" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>種類は、データ製品を使用するユーザーがその種類を識別するために設定し検索でデータ製品をフィルターするために使用できます。</p>
+</div>
+</li>
+<li>
+<p><strong>ユースケース</strong>に次の文章を入力し作成します。</p>
+<div class="highlight"><pre><span></span><code>各ファイルには、ユーザーの属性情報と取引に関する詳細が含まれており、グローバルな購買行動の分析や、国別のマーケティング施策の立案に活用できます。
+</code></pre></div>
+<p><a class="glightbox" href="../images/module01/image-36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-36.png" /></a></p>
+</li>
+<li>
+<p><strong>データ資産の追加</strong>を選択し<strong>完了</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-27.png" /></a></p>
+</li>
+<li>
+<p>3つのファイルをチェックし<strong>追加</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-28.png" /></a></p>
+</li>
+<li>
+<p><strong>用語集の用語</strong>から<strong>追加</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-29.png" /></a></p>
+</li>
+<li>
+<p>2つの用語をチェックし追加します。</p>
+<p><a class="glightbox" href="../images/module01/image-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-30.png" width="80%" /></a></p>
+</li>
 </ol>
-<p>機械学習モデルの学習  購買予測やレコメンデーションなどのモデル構築におけるトレーニングデータとして利用するため。</p>
-<p>品質・異常検知 不正取引や異常な購買パターンの検出など、データ品質やセキュリティの観点での分析に使用するため。</p>
-<h2 id="marketing">Marketing部門用のガバナンスドメイン作成</h2>
+<h2 id="_9">データ製品のアクセスポリシー設定</h2>
 <ol>
 <li>
-<p>データ製品の作成</p>
+<p><strong>ポリシー管理</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/module01/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-31.png" /></a></p>
 </li>
 <li>
-<p>用語集の作成</p>
+<p><strong>目的の追加</strong>をクリックし追加の利用目的を入力します。</p>
+<div class="grid" markdown>
+<div class="highlight"><pre><span></span><code>機械学習モデルの学習
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ECサイトのトランザクションデータセット
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>品質・異常検知
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>不正取引や異常な購買パターンの検出など、データ品質やセキュリティの観点での分析に使用するため。
+</code></pre></div>
+</div>
+<p><strong>データアクセスの制限</strong>を<code>3</code> <code>Months</code> に設定します。</p>
+<p><a class="glightbox" href="../images/module01/image-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-32.png" width="80%" /></a></p>
+<p>次の値を入力し<strong>構成証明の追加</strong>をクリックし利用許諾書の情報を入力します。</p>
+<div class="grid" markdown>
+<p>アクセス要求の承認者</p>
+<div class="highlight"><pre><span></span><code>Sales部門の管理者
+</code></pre></div>
+<p>データ アクセス プロバイダー</p>
+<div class="highlight"><pre><span></span><code>Sales部門の管理者
+</code></pre></div>
+<p>データ コピーを許可する</p>
+<p>✅</p>
+<p>表示名</p>
+<div class="highlight"><pre><span></span><code>ECデータ利用許諾書
+</code></pre></div>
+<p>ファイルの場所</p>
+<div class="highlight"><pre><span></span><code>https://iwabuchit.github.io/microsoft-purview-dg-workshop-ja/3.Unified%20Catalog/docs/kyodaku.docx
+</code></pre></div>
+</div>
+<p><a class="glightbox" href="../images/module01/image-33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-33.png" width="80%" /></a></p>
+<p>要求フォームのプレビューを確認し変更を保存します。</p>
+<p><a class="glightbox" href="../images/module01/image-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-34.png" /></a></p>
 </li>
 <li>
-<p>重要なデータ要素の作成</p>
+<p>全ての情報を入力したら<strong>公開</strong>します。</p>
+<p><a class="glightbox" href="../images/module01/image-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-35.png" /></a></p>
 </li>
 </ol>
-<h2 id="_8">関連リンク</h2>
-<p>https://learn.microsoft.com/ja-jp/purview/concept-domains</p>
+<h2 id="_10">関連リンク</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/purview/unified-catalog-governance-domains-create-manage">ガバナンス ドメインの作成と管理</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/purview/unified-catalog-data-products-create-manage">データ製品の作成と管理</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/purview/unified-catalog-enterprise-glossary">エンタープライズ用語集 (プレビュー)</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/purview/unified-catalog-critical-data-elements">重要なデータ要素 (プレビュー)</a></li>
+</ul>
 
 
 

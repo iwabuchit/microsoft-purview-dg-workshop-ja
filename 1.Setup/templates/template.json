@@ -1,0 +1,1046 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.36.1.42791",
+      "templateHash": "5113625950848465829"
+    }
+  },
+  "parameters": {
+    "sqlServerAdminLogin": {
+      "type": "string",
+      "defaultValue": "wssqladmin",
+      "metadata": {
+        "description": "Please specify a login name for the Azure SQL Server administrator. Default value: wssqladmin."
+      }
+    },
+    "sqlServerAdminPassword": {
+      "type": "securestring",
+      "defaultValue": "PenApplePineapple!1",
+      "metadata": {
+        "description": "Please specify a password for the Azure SQL Server administrator. Default value: PenApplePineapple!1"
+      }
+    }
+  },
+  "variables": {
+    "tenantId": "[subscription().tenantId]",
+    "location": "[resourceGroup().location]",
+    "subscriptionId": "[subscription().subscriptionId]",
+    "resourceGroupName": "[resourceGroup().name]",
+    "rdPrefix": "[format('/subscriptions/{0}/providers/Microsoft.Authorization/roleDefinitions', variables('subscriptionId'))]",
+    "role": {
+      "Owner": "[format('{0}/8e3af657-a8ff-443c-a75c-2fe8c4bcb635', variables('rdPrefix'))]",
+      "Contributor": "[format('{0}/b24988ac-6180-42a0-ab88-20f7382dd24c', variables('rdPrefix'))]",
+      "StorageBlobDataReader": "[format('{0}/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1', variables('rdPrefix'))]",
+      "StorageBlobDataContributor": "[format('{0}/ba92f5b4-2d11-453d-a403-e96b0029c9fe', variables('rdPrefix'))]"
+    },
+    "prefix": "pvws",
+    "suffix": "[substring(uniqueString(resourceGroup().id, deployment().name), 0, 5)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2023-01-01",
+      "name": "[format('{0}/{1}/{2}', format('{0}{1}adls', variables('prefix'), variables('suffix')), 'default', 'dataset')]",
+      "properties": {
+        "publicAccess": "Blob"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices', format('{0}{1}adls', variables('prefix'), variables('suffix')), 'default')]"
+      ]
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices",
+      "apiVersion": "2023-01-01",
+      "name": "[format('{0}/{1}', format('{0}{1}adls', variables('prefix'), variables('suffix')), 'default')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', format('{0}{1}adls', variables('prefix'), variables('suffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Sql/servers/firewallRules",
+      "apiVersion": "2023-05-01-preview",
+      "name": "[format('{0}/{1}', format('{0}{1}-sqlsvr', variables('prefix'), variables('suffix')), 'allowAzure')]",
+      "properties": {
+        "startIpAddress": "0.0.0.0",
+        "endIpAddress": "0.0.0.0"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', format('{0}{1}-sqlsvr', variables('prefix'), variables('suffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Sql/servers/firewallRules",
+      "apiVersion": "2023-05-01-preview",
+      "name": "[format('{0}/{1}', format('{0}{1}-sqlsvr', variables('prefix'), variables('suffix')), 'allowAll')]",
+      "properties": {
+        "startIpAddress": "0.0.0.0",
+        "endIpAddress": "255.255.255.255"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', format('{0}{1}-sqlsvr', variables('prefix'), variables('suffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/linkedservices",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'AzureDataLakeStorageLinkedService')]",
+      "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+          "url": "[reference(resourceId('Microsoft.Storage/storageAccounts', format('{0}{1}adls', variables('prefix'), variables('suffix'))), '2023-01-01').primaryEndpoints.dfs]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', format('{0}{1}adls', variables('prefix'), variables('suffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/linkedservices",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'AzureSqlDatabaseLinkedService')]",
+      "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+          "connectionString": "[format('Server=tcp:{0}{1}-sqlsvr.database.windows.net,1433;Initial Catalog={2}{3}-sqldb;Persist Security Info=False;User ID={4};Password={5};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=90;', variables('prefix'), variables('suffix'), variables('prefix'), variables('suffix'), parameters('sqlServerAdminLogin'), parameters('sqlServerAdminPassword'))]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/linkedservices",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'HttpGithubLinkedService')]",
+      "properties": {
+        "type": "HttpServer",
+        "typeProperties": {
+          "url": "https://github.com/iwabuchit/microsoft-purview-dg-workshop-ja/raw/refs/heads/gh-pages/1.Setup/datasets/",
+          "authenticationType": "Anonymous",
+          "enableServerCertificateValidation": "true"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/datasets",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'Web_EC_Dataset')]",
+      "properties": {
+        "linkedServiceName": {
+          "referenceName": "HttpGithubLinkedService",
+          "type": "LinkedServiceReference"
+        },
+        "parameters": {
+          "FileName": {
+            "type": "String"
+          }
+        },
+        "annotations": [],
+        "type": "Parquet",
+        "typeProperties": {
+          "location": {
+            "type": "HttpServerLocation",
+            "relativeUrl": {
+              "type": "Expression",
+              "value": "@dataset().FileName"
+            }
+          },
+          "compressionCodec": "snappy"
+        },
+        "schema": []
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.DataFactory/factories/linkedservices', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'HttpGithubLinkedService')]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/datasets",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'ADLS_EC_Dataset')]",
+      "properties": {
+        "linkedServiceName": {
+          "referenceName": "AzureDataLakeStorageLinkedService",
+          "type": "LinkedServiceReference"
+        },
+        "parameters": {
+          "FileName": {
+            "type": "String"
+          }
+        },
+        "annotations": [],
+        "type": "Parquet",
+        "typeProperties": {
+          "location": {
+            "type": "AzureBlobFSLocation",
+            "fileName": {
+              "type": "Expression",
+              "value": "@dataset().FileName"
+            },
+            "fileSystem": "dataset"
+          },
+          "compressionCodec": "snappy"
+        },
+        "schema": []
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.DataFactory/factories/linkedservices', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'AzureDataLakeStorageLinkedService')]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/datasets",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'SQLDB_Transactions')]",
+      "properties": {
+        "linkedServiceName": {
+          "referenceName": "AzureSqlDatabaseLinkedService",
+          "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+          "schema": "Workshop",
+          "table": "Transactions"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.DataFactory/factories/linkedservices', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'AzureSqlDatabaseLinkedService')]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/pipelines",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'Create Assets')]",
+      "properties": {
+        "activities": [
+          {
+            "name": "ForEach Files",
+            "type": "ForEach",
+            "dependsOn": [
+              {
+                "activity": "Create Table",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "userProperties": [],
+            "typeProperties": {
+              "items": {
+                "value": "@variables('source_files')",
+                "type": "Expression"
+              },
+              "activities": [
+                {
+                  "name": "Github to Storage",
+                  "type": "Copy",
+                  "dependsOn": [],
+                  "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                  },
+                  "userProperties": [],
+                  "typeProperties": {
+                    "source": {
+                      "type": "ParquetSource",
+                      "storeSettings": {
+                        "type": "HttpReadSettings",
+                        "requestMethod": "GET"
+                      },
+                      "formatSettings": {
+                        "type": "ParquetReadSettings"
+                      }
+                    },
+                    "sink": {
+                      "type": "ParquetSink",
+                      "storeSettings": {
+                        "type": "AzureBlobFSWriteSettings"
+                      },
+                      "formatSettings": {
+                        "type": "ParquetWriteSettings"
+                      }
+                    },
+                    "enableStaging": false,
+                    "translator": {
+                      "type": "TabularTranslator",
+                      "typeConversion": true,
+                      "typeConversionSettings": {
+                        "allowDataTruncation": true,
+                        "treatBooleanAsNumber": false
+                      }
+                    }
+                  },
+                  "inputs": [
+                    {
+                      "referenceName": "Web_EC_Dataset",
+                      "type": "DatasetReference",
+                      "parameters": {
+                        "FileName": {
+                          "value": "@item()",
+                          "type": "Expression"
+                        }
+                      }
+                    }
+                  ],
+                  "outputs": [
+                    {
+                      "referenceName": "ADLS_EC_Dataset",
+                      "type": "DatasetReference",
+                      "parameters": {
+                        "FileName": {
+                          "value": "@item()",
+                          "type": "Expression"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "Storage to SQLDB",
+                  "type": "Copy",
+                  "dependsOn": [
+                    {
+                      "activity": "Github to Storage",
+                      "dependencyConditions": [
+                        "Succeeded"
+                      ]
+                    }
+                  ],
+                  "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                  },
+                  "userProperties": [],
+                  "typeProperties": {
+                    "source": {
+                      "type": "ParquetSource",
+                      "storeSettings": {
+                        "type": "AzureBlobFSReadSettings",
+                        "recursive": true,
+                        "enablePartitionDiscovery": false
+                      },
+                      "formatSettings": {
+                        "type": "ParquetReadSettings"
+                      }
+                    },
+                    "sink": {
+                      "type": "AzureSqlSink",
+                      "writeBehavior": "insert",
+                      "sqlWriterUseTableLock": false,
+                      "disableMetricsCollection": false
+                    },
+                    "enableStaging": false,
+                    "translator": {
+                      "type": "TabularTranslator",
+                      "typeConversion": true,
+                      "typeConversionSettings": {
+                        "allowDataTruncation": true,
+                        "treatBooleanAsNumber": false
+                      }
+                    }
+                  },
+                  "inputs": [
+                    {
+                      "referenceName": "ADLS_EC_Dataset",
+                      "type": "DatasetReference",
+                      "parameters": {
+                        "FileName": {
+                          "value": "@item()",
+                          "type": "Expression"
+                        }
+                      }
+                    }
+                  ],
+                  "outputs": [
+                    {
+                      "referenceName": "SQLDB_Transactions",
+                      "type": "DatasetReference"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Create Schema",
+            "type": "Script",
+            "dependsOn": [],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [],
+            "linkedServiceName": {
+              "referenceName": "AzureSqlDatabaseLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "typeProperties": {
+              "scripts": [
+                {
+                  "type": "NonQuery",
+                  "text": "IF NOT EXISTS (\n    SELECT 1\n    FROM sys.schemas\n    WHERE name = 'Workshop'\n)\nBEGIN\n    EXEC('CREATE SCHEMA Workshop');\nEND"
+                }
+              ],
+              "scriptBlockExecutionTimeout": "02:00:00"
+            }
+          },
+          {
+            "name": "Create Table",
+            "type": "Script",
+            "dependsOn": [
+              {
+                "activity": "Create Schema",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [],
+            "linkedServiceName": {
+              "referenceName": "AzureSqlDatabaseLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "typeProperties": {
+              "scripts": [
+                {
+                  "type": "NonQuery",
+                  "text": "IF OBJECT_ID('Workshop.Transactions', 'U') IS NOT NULL\nBEGIN\n    DROP TABLE Workshop.Transactions;\nEND\n\nCREATE TABLE Workshop.Transactions (\n    [Transaction_ID] bigint NULL,\n    [User_Name] nvarchar(100) NULL,\n    [Age] bigint NULL,\n    [Country] nvarchar(100) NULL,\n    [Product_Category] nvarchar(100) NULL,\n    [Purchase_Amount] float NULL,\n    [Payment_Method] nvarchar(100) NULL,\n    [Transaction_Date] datetime2 NULL\n);"
+                }
+              ],
+              "scriptBlockExecutionTimeout": "02:00:00"
+            }
+          },
+          {
+            "name": "Create View vw_TransactionAggregates",
+            "type": "Script",
+            "dependsOn": [
+              {
+                "activity": "ForEach Files",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [],
+            "linkedServiceName": {
+              "referenceName": "AzureSqlDatabaseLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "typeProperties": {
+              "scripts": [
+                {
+                  "type": "NonQuery",
+                  "text": "-- 国と商品カテゴリごとに購入金額の合計と平均を集計\nCREATE OR ALTER VIEW Workshop.vw_TransactionAggregates AS\nSELECT\n    Country,\n    Product_Category,\n    COUNT(Transaction_ID) AS Total_Transactions,\n    SUM(Purchase_Amount) AS Total_Purchase_Amount,\n    AVG(Purchase_Amount) AS Average_Purchase_Amount\nFROM\n    Workshop.Transactions\nGROUP BY\n    Country,\n    Product_Category\n;"
+                }
+              ],
+              "scriptBlockExecutionTimeout": "02:00:00"
+            }
+          },
+          {
+            "name": "Create View vw_PaymentMethodStats",
+            "type": "Script",
+            "dependsOn": [
+              {
+                "activity": "ForEach Files",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [],
+            "linkedServiceName": {
+              "referenceName": "AzureSqlDatabaseLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "typeProperties": {
+              "scripts": [
+                {
+                  "type": "NonQuery",
+                  "text": "-- 支払い方法ごとの取引件数と合計金額\nCREATE OR ALTER VIEW Workshop.vw_PaymentMethodStats AS\nSELECT\n    Payment_Method,\n    COUNT(Transaction_ID) AS Transaction_Count,\n    SUM(Purchase_Amount) AS Total_Purchase\nFROM\n    Workshop.Transactions\nGROUP BY\n    Payment_Method\n;"
+                }
+              ],
+              "scriptBlockExecutionTimeout": "02:00:00"
+            }
+          },
+          {
+            "name": "Create View vw_MonthlyPurchaseTrend",
+            "type": "Script",
+            "dependsOn": [
+              {
+                "activity": "ForEach Files",
+                "dependencyConditions": [
+                  "Succeeded"
+                ]
+              }
+            ],
+            "policy": {
+              "timeout": "0.12:00:00",
+              "retry": 0,
+              "retryIntervalInSeconds": 30,
+              "secureOutput": false,
+              "secureInput": false
+            },
+            "userProperties": [],
+            "linkedServiceName": {
+              "referenceName": "AzureSqlDatabaseLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "typeProperties": {
+              "scripts": [
+                {
+                  "type": "NonQuery",
+                  "text": "-- 月別の購入金額推移\nCREATE OR ALTER VIEW  Workshop.vw_MonthlyPurchaseTrend AS\nSELECT\n    FORMAT(Transaction_Date, 'yyyy-MM') AS Transaction_Month,\n    SUM(Purchase_Amount) AS Monthly_Total,\n    COUNT(Transaction_ID) AS Monthly_Transactions\nFROM\n    Workshop.Transactions\nGROUP BY\n    FORMAT(Transaction_Date, 'yyyy-MM')\n;"
+                }
+              ],
+              "scriptBlockExecutionTimeout": "02:00:00"
+            }
+          }
+        ],
+        "variables": {
+          "source_files": {
+            "type": "Array",
+            "defaultValue": [
+              "ecommerce_transactions_germany.parquet",
+              "ecommerce_transactions_japan.parquet",
+              "ecommerce_transactions_usa.parquet"
+            ]
+          }
+        },
+        "annotations": []
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.DataFactory/factories/datasets', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'ADLS_EC_Dataset')]",
+        "[resourceId('Microsoft.DataFactory/factories/datasets', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'Web_EC_Dataset')]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/datasets",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'SourceDataset')]",
+      "properties": {
+        "linkedServiceName": {
+          "referenceName": "AzureDataLakeStorageLinkedService",
+          "type": "LinkedServiceReference"
+        },
+        "type": "Parquet",
+        "typeProperties": {
+          "location": {
+            "type": "AzureBlobStorageLocation",
+            "container": "dataset"
+          },
+          "compressionCodec": "snappy"
+        },
+        "schema": [
+          {
+            "type": "INT64",
+            "name": "RowNumber"
+          },
+          {
+            "name": "CustomerId",
+            "type": "INT64"
+          },
+          {
+            "name": "Surname",
+            "type": "UTF8"
+          },
+          {
+            "name": "CreditScore",
+            "type": "INT64"
+          },
+          {
+            "name": "Geography",
+            "type": "UTF8"
+          },
+          {
+            "name": "Gender",
+            "type": "UTF8"
+          },
+          {
+            "name": "Age",
+            "type": "INT64"
+          },
+          {
+            "name": "Tenure",
+            "type": "INT64"
+          },
+          {
+            "name": "Balance",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "NumOfProducts",
+            "type": "INT64"
+          },
+          {
+            "name": "HasCrCard",
+            "type": "INT64"
+          },
+          {
+            "name": "IsActiveMember",
+            "type": "INT64"
+          },
+          {
+            "name": "EstimatedSalary",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "Exited",
+            "type": "INT64"
+          },
+          {
+            "name": "__index_level_0__",
+            "type": "INT64"
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.DataFactory/factories/linkedservices', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'AzureDataLakeStorageLinkedService')]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/datasets",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'DestinationDataset')]",
+      "properties": {
+        "linkedServiceName": {
+          "referenceName": "AzureSqlDatabaseLinkedService",
+          "type": "LinkedServiceReference"
+        },
+        "type": "AzureSqlTable",
+        "typeProperties": {
+          "schema": "dbo",
+          "table": "BankCustomerChurn"
+        },
+        "schema": [
+          {
+            "name": "RowNumber",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "CustomerId",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "Surname",
+            "type": "nvarchar"
+          },
+          {
+            "name": "CreditScore",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "Geography",
+            "type": "nvarchar"
+          },
+          {
+            "name": "Gender",
+            "type": "nvarchar"
+          },
+          {
+            "name": "Age",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "Tenure",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "Balance",
+            "type": "float",
+            "precision": 15
+          },
+          {
+            "name": "NumOfProducts",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "HasCrCard",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "IsActiveMember",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "EstimatedSalary",
+            "type": "float",
+            "precision": 15
+          },
+          {
+            "name": "Exited",
+            "type": "bigint",
+            "precision": 19
+          },
+          {
+            "name": "__index_level_0__",
+            "type": "bigint",
+            "precision": 19
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.DataFactory/factories/linkedservices', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'AzureSqlDatabaseLinkedService')]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories/pipelines",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}/{1}', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'copyPipeline')]",
+      "properties": {
+        "activities": [
+          {
+            "name": "Copy_to_SQL",
+            "type": "Copy",
+            "dependsOn": [],
+            "typeProperties": {
+              "source": {
+                "type": "ParquetSource",
+                "storeSettings": {
+                  "type": "AzureBlobFSReadSettings",
+                  "recursive": true,
+                  "wildcardFileName": "*",
+                  "enablePartitionDiscovery": false
+                },
+                "formatSettings": {
+                  "type": "ParquetReadSettings"
+                }
+              },
+              "sink": {
+                "type": "AzureSqlSink",
+                "tableOption": "autoCreate"
+              },
+              "enableStaging": false,
+              "validateDataConsistency": false,
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "RowNumber",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "RowNumber",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "CustomerId",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "CustomerId",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "Surname",
+                      "type": "String",
+                      "physicalType": "UTF8"
+                    },
+                    "sink": {
+                      "name": "Surname",
+                      "type": "String",
+                      "physicalType": "nvarchar"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "CreditScore",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "CreditScore",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "Geography",
+                      "type": "String",
+                      "physicalType": "UTF8"
+                    },
+                    "sink": {
+                      "name": "Geography",
+                      "type": "String",
+                      "physicalType": "nvarchar"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "Gender",
+                      "type": "String",
+                      "physicalType": "UTF8"
+                    },
+                    "sink": {
+                      "name": "Gender",
+                      "type": "String",
+                      "physicalType": "nvarchar"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "Age",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "Age",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "Tenure",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "Tenure",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "Balance",
+                      "type": "Double",
+                      "physicalType": "DOUBLE"
+                    },
+                    "sink": {
+                      "name": "Balance",
+                      "type": "Double",
+                      "physicalType": "float"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "NumOfProducts",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "NumOfProducts",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "HasCrCard",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "HasCrCard",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "IsActiveMember",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "IsActiveMember",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "EstimatedSalary",
+                      "type": "Double",
+                      "physicalType": "DOUBLE"
+                    },
+                    "sink": {
+                      "name": "EstimatedSalary",
+                      "type": "Double",
+                      "physicalType": "float"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "Exited",
+                      "type": "Int64",
+                      "physicalType": "INT64"
+                    },
+                    "sink": {
+                      "name": "Exited",
+                      "type": "Int64",
+                      "physicalType": "bigint"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            },
+            "inputs": [
+              {
+                "referenceName": "SourceDataset",
+                "type": "DatasetReference"
+              }
+            ],
+            "outputs": [
+              {
+                "referenceName": "DestinationDataset",
+                "type": "DatasetReference"
+              }
+            ]
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.DataFactory/factories/datasets', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'DestinationDataset')]",
+        "[resourceId('Microsoft.DataFactory/factories/datasets', format('{0}{1}-adf', variables('prefix'), variables('suffix')), 'SourceDataset')]"
+      ]
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "name": "[format('{0}{1}adls', variables('prefix'), variables('suffix'))]",
+      "location": "[variables('location')]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "properties": {
+        "isHnsEnabled": true,
+        "allowBlobPublicAccess": true,
+        "accessTier": "Hot",
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "defaultAction": "Allow"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2023-05-01-preview",
+      "name": "[format('{0}{1}-sqlsvr', variables('prefix'), variables('suffix'))]",
+      "location": "[variables('location')]",
+      "properties": {
+        "administratorLogin": "[parameters('sqlServerAdminLogin')]",
+        "administratorLoginPassword": "[parameters('sqlServerAdminPassword')]",
+        "publicNetworkAccess": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2022-05-01-preview",
+      "name": "[format('{0}/{1}', format('{0}{1}-sqlsvr', variables('prefix'), variables('suffix')), format('{0}{1}-sqldb', variables('prefix'), variables('suffix')))]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "GP_S_Gen5",
+        "tier": "GeneralPurpose",
+        "family": "Gen5",
+        "capacity": 2
+      },
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+        "autoPauseDelay": 60,
+        "requestedBackupStorageRedundancy": "Local",
+        "sampleName": "AdventureWorksLT"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers', format('{0}{1}-sqlsvr', variables('prefix'), variables('suffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DataFactory/factories",
+      "apiVersion": "2018-06-01",
+      "name": "[format('{0}{1}-adf', variables('prefix'), variables('suffix'))]",
+      "location": "[variables('location')]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/databases', format('{0}{1}-sqlsvr', variables('prefix'), variables('suffix')), format('{0}{1}-sqldb', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', format('{0}{1}adls', variables('prefix'), variables('suffix')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2022-04-01",
+      "scope": "[format('Microsoft.Storage/storageAccounts/{0}', format('{0}{1}adls', variables('prefix'), variables('suffix')))]",
+      "name": "[guid(format('ra01{0}', variables('resourceGroupName')))]",
+      "properties": {
+        "principalId": "[reference(resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix'))), '2018-06-01', 'full').identity.principalId]",
+        "roleDefinitionId": "[variables('role').StorageBlobDataContributor]",
+        "principalType": "ServicePrincipal"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DataFactory/factories', format('{0}{1}-adf', variables('prefix'), variables('suffix')))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', format('{0}{1}adls', variables('prefix'), variables('suffix')))]"
+      ]
+    }
+  ]
+}
