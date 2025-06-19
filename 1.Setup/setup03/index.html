@@ -328,7 +328,7 @@
         
   
   <span class="md-ellipsis">
-    S02. Purview アカウントのセットアップ
+    S02. Microsoft Purview アカウントのセットアップ
   </span>
   
 
@@ -435,7 +435,7 @@
         <li class="md-nav__item">
   <a href="#azure-data-factoryadf" class="md-nav__link">
     <span class="md-ellipsis">
-      Azure Data Factory(ADF)の登録とパイプラインの実行
+      Azure Data Factory(ADF)の登録
     </span>
   </a>
   
@@ -443,6 +443,15 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      パイプラインの実行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -517,7 +526,7 @@
         
   
   <span class="md-ellipsis">
-    D01. テクニカル ドメインとコレクションの作成
+    D01. コレクションの作成
   </span>
   
 
@@ -736,7 +745,7 @@
         <li class="md-nav__item">
   <a href="#azure-data-factoryadf" class="md-nav__link">
     <span class="md-ellipsis">
-      Azure Data Factory(ADF)の登録とパイプラインの実行
+      Azure Data Factory(ADF)の登録
     </span>
   </a>
   
@@ -744,6 +753,15 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      パイプラインの実行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       関連リンク
     </span>
@@ -769,15 +787,14 @@
 <h1 id="s03">S03. データ資産の作成と設定</h1>
 <h2 id="_1">はじめに</h2>
 <h3 id="_2">📢 導入</h3>
-<p>このモジュールでは、。。。データ資産を作成します。</p>
+<p>このモジュールでは、Microsoft Purviewに登録するデータ資産をデプロイしてアクセス制御の設定を行います。また、Azure Data Factoryを接続してリネージを作成します。</p>
 <h3 id="_3">🤔 前提条件</h3>
 <ul>
-<li>Microsoft Purview アカウント</li>
-<li>Purview アカウント所有者を持つユーザー</li>
-<li>Salesドメイン、Marketingドメインのカタログ管理者を想定したEntra IDユーザー</li>
+<li>S02. Microsoft Purview アカウントのセットアップ</li>
+<li>Purview アカウント所有者ロールを持つユーザー</li>
+<li>Salesドメイン、Marketingドメインのカタログ管理者を想定したEntra IDのユーザー</li>
 </ul>
 <h2 id="_4">データ資産の作成</h2>
-<p>以下をクリックしてデータ資産を作成します。</p>
 <ol>
 <li>
 <p>下記のアイコンを <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + クリックしてAzureポータルを開きます。</p>
@@ -786,25 +803,75 @@
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fiwabuchit.github.io%2Fmicrosoft-purview-dg-workshop-ja%2F1.Setup%2Ftemplates%2Ftemplate.json">https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fiwabuchit.github.io%2Fmicrosoft-purview-dg-workshop-ja%2F1.Setup%2Ftemplates%2Ftemplate.json</a></p>
 </li>
 <li>
-<p>デプロイが完了したら作成したリソースグループの <strong>アクセス制御</strong> から <strong>+追加</strong> をクリックし <strong>ロールの割り当ての追加</strong> を選択します。</p>
+<p>サブスクリプションを入力してリソース グループを新規に作成します。リソース グループ名は任意です。<br />
+    リージョンを選択しAzure SQL Databaseの接続情報を入力して<strong>確認と作成</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/setup03/image-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-25.png" width="90%" /></a></p>
+</li>
+<li>
+<p>問題がなければ<strong>作成</strong>をクリックします。</p>
+<p><a class="glightbox" href="../images/setup03/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-26.png" width="90%" /></a></p>
+</li>
+<li>
+<p>デプロイが完了したら<strong>リソース グループに移動</strong>をクリックし移動します。</p>
+<p><a class="glightbox" href="../images/setup03/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-27.png" /></a></p>
+</li>
+<li>
+<p>作成した<strong>リソースグループ</strong>の<strong>アクセス制御</strong>から<strong>追加</strong>をクリックし <strong>ロールの割り当ての追加</strong> を選択します。</p>
 <p><a class="glightbox" href="../images/setup03/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-15.png" width="90%" /></a></p>
 </li>
 <li>
 <p><strong>特権管理ロール</strong> から <strong>所有者</strong> を選び <strong>次へ</strong> をクリックします。</p>
 <!-- <a class="glightbox" href="images/setup03/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/setup03/image-16.png" /></a>{width=90%} -->
-<p><a class="glightbox" href="../images/setup03/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-18.png" width="90%" /></a></p>
+<p><a class="glightbox" href="../images/setup03/image-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-18.png" /></a></p>
 </li>
 <li>
-<p><strong>+メンバーを選択する</strong> をクリックしSalesドメイン、Marketingドメインのカタログ管理者を想定したユーザーを検索して選択し次へをクリックします。</p>
+<p><strong>メンバーを選択する</strong> をクリックしSalesドメイン、Marketingドメインのカタログ管理者を想定したユーザーを検索して選択し次へをクリックします。</p>
 <!-- <a class="glightbox" href="images/setup03/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/setup03/image-17.png" /></a>{width=90%} -->
-<p><a class="glightbox" href="../images/setup03/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-19.png" width="90%" /></a></p>
+<p><a class="glightbox" href="../images/setup03/image-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-19.png" /></a></p>
 </li>
 <li>
 <p><strong>ユーザーにすべてのロールの割り当てを許可する (高い特権)</strong> を選択し <strong>レビューと割り当て</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-20.png" width="90%" /></a></p>
+<p><a class="glightbox" href="../images/setup03/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-20.png" /></a></p>
 </li>
 </ol>
-<h2 id="azure-data-factoryadf">Azure Data Factory(ADF)の登録とパイプラインの実行</h2>
+<h2 id="azure-data-factoryadf">Azure Data Factory(ADF)の登録</h2>
+<details class="warning">
+<summary>ここでは Purview ガバナンス ポータル を操作します。</summary>
+</details>
+<ol>
+<li>
+<p><strong>データマップ</strong> から <strong>系列の接続</strong> を選択し<strong>新規</strong>をクリックします。</p>
+<!-- <a class="glightbox" href="images/setup03/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/setup03/image-6.png" /></a> -->
+<p><a class="glightbox" href="../images/setup03/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-14.png" /></a></p>
+</li>
+<li>
+<p><strong>サブスクリプション</strong>と<strong>ADF</strong>を選択し<strong>OK</strong>をクリックします。</p>
+<!-- <a class="glightbox" href="images/setup03/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/setup03/image-7.png" /></a>{width=90%} -->
+<p><a class="glightbox" href="../images/setup03/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-21.png" /></a></p>
+</li>
+</ol>
+<!-- 
+1. **データマップ**の**ドメイン**から**ドメイン**を選択し **ロールの割り当て** から **データ キュレーターの追加アイコン** をクリックします。
+
+
+    ![alt text](images/setup03/image-8.png)
+
+1. ADFのマネージドIDを検索、追加し **OK** をクリックします。
+
+    ![alt text](images/setup03/image-9.png){width=90%}
+
+-->
+
+<ol>
+<li>
+<p>ADFの状態が<strong>接続済み</strong>になっていることを確認します。</p>
+<p><a class="glightbox" href="../images/setup03/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-22.png" /></a></p>
+</li>
+</ol>
+<h2 id="_5">パイプラインの実行</h2>
+<details class="warning">
+<summary>ここではAzure ポータルからADF Studioを起動し操作します。</summary>
+</details>
 <ol>
 <li>
 <p>AzureポータルからADFを選択します。</p>
@@ -815,52 +882,40 @@
 <p><a class="glightbox" href="../images/setup03/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-5.png" width="90%" /></a></p>
 </li>
 <li>
-<p><strong>管理</strong> から <strong>Microsoft Purview</strong> を選択し、<strong>Purview アカウントに接続</strong> をクリックしPurviewアカウントを選択して <strong>適用</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-6.png" /></a></p>
-</li>
-<li>
-<p>正常に接続されたことを確認します。</p>
-<p><a class="glightbox" href="../images/setup03/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-7.png" width="90%" /></a></p>
-</li>
-<li>
-<p>Purview DGのポータル画面の <strong>データマップ</strong> から作成したテクニカルドメインを選択し <strong>ロールの割り当て</strong> から <strong>データ キュレーターの追加アイコン</strong> をクリックします。</p>
-<details class="warning">
-<summary>ここでは Purview ガバナンス ポータル を操作します。</summary>
-</details>
-<p><a class="glightbox" href="../images/setup03/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-8.png" /></a></p>
-</li>
-<li>
-<p>ADFのマネージドIDを検索、追加し <strong>OK</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-9.png" width="90%" /></a></p>
-</li>
-<li>
 <p>ADF Studioに戻り <strong>鉛筆アイコン</strong> をクリックし <strong>copyPipeline</strong> を選択し <strong>トリガーの追加</strong> から <strong>今すぐトリガー</strong> をクリックします。</p>
-<details class="warning">
-<summary>ここでは ADF Studio を操作します。</summary>
-</details>
-<p><a class="glightbox" href="../images/setup03/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-10.png" /></a></p>
+<p><a class="glightbox" href="../images/setup03/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-23.png" /></a></p>
 </li>
 <li>
 <p><strong>OK</strong> をクリックします。</p>
 <p><a class="glightbox" href="../images/setup03/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-11.png" width="90%" /></a></p>
 </li>
 <li>
-<p><strong>モニター アイコン</strong>をクリックし <strong>パイプライン実行</strong> を選択して <strong>copyPipeline</strong> をクリックします。</p>
-<p><a class="glightbox" href="../images/setup03/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-12.png" width="90%" /></a></p>
-</li>
-<li>
-<p>系列の状態の詳細から状態が成功になっていることを確認します。</p>
-<p><a class="glightbox" href="../images/setup03/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-13.png" width="90%" /></a></p>
+<p><strong>モニター アイコン</strong>をクリックし <strong>パイプライン実行</strong> を選択して <strong>Create Assets</strong> をクリックします。</p>
+<p><a class="glightbox" href="../images/setup03/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-10.png" /></a></p>
 </li>
 </ol>
+<!--
+
+1. 系列の状態の詳細から状態が成功になっていることを確認します。
+
+    ![alt text](images/setup03/image-13.png){width=90%}
+
+-->
+
+<ol>
+<li>
+<p>全てのアクティビティが<strong>成功</strong>になっていることを確認します。</p>
+<p><a class="glightbox" href="../images/setup03/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-12.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>系列のプッシュが成功すると Purview DG 側でも系列が確認できます。</p>
-<p><a class="glightbox" href="images/setup03/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="images/setup03/image-14.png" /></a></p>
 </div>
-<h2 id="_5">関連リンク</h2>
+<p><a class="glightbox" href="../images/setup03/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/setup03/image-24.png" /></a></p>
+</li>
+</ol>
+<h2 id="_6">関連リンク</h2>
 <ul>
-<li><a href="https://learn.microsoft.com/ja-jp/purview/concept-domains">Dummy</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/purview/how-to-link-azure-data-factory">Azure Data Factoryと Microsoft Purview を接続する方法</a></li>
 </ul>
 
 
