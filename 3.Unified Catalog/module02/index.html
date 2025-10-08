@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../../2.DataMap/module04/">
+        <link rel="prev" href="../module01/">
       
-      
-        <link rel="next" href="../module02/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン) - Microsoft Purview Data Governance Workshop JP</title>
+        <title>U02.ガバナンス ドメインとビジネスの概念の作成(Marketingドメイン) - Microsoft Purview Data Governance Workshop JP</title>
       
     
     
@@ -93,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#u01-sales" class="md-skip">
+        <a href="#u02-marketing" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)
+              U02.ガバナンス ドメインとビジネスの概念の作成(Marketingドメイン)
             
           </span>
         </div>
@@ -541,6 +539,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../module01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -557,7 +576,7 @@
           
   
   <span class="md-ellipsis">
-    U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)
+    U02.ガバナンス ドメインとビジネスの概念の作成(Marketingドメイン)
   </span>
   
 
@@ -568,7 +587,7 @@
         
   
   <span class="md-ellipsis">
-    U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)
+    U02.ガバナンス ドメインとビジネスの概念の作成(Marketingドメイン)
   </span>
   
 
@@ -641,9 +660,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sales" class="md-nav__link">
+  <a href="#marketing" class="md-nav__link">
     <span class="md-ellipsis">
-      Sales部門用のガバナンス ドメイン作成
+      Marketing部門用のガバナンス ドメイン作成
     </span>
   </a>
   
@@ -698,27 +717,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module02/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    U02.ガバナンス ドメインとビジネスの概念の作成(Marketingドメイン)
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -809,9 +807,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sales" class="md-nav__link">
+  <a href="#marketing" class="md-nav__link">
     <span class="md-ellipsis">
-      Sales部門用のガバナンス ドメイン作成
+      Marketing部門用のガバナンス ドメイン作成
     </span>
   </a>
   
@@ -877,17 +875,17 @@
                   
 
 
-<h1 id="u01-sales">U01.ガバナンス ドメインとビジネスの概念の作成(Salesドメイン)</h1>
+<h1 id="u02-marketing">U02.ガバナンス ドメインとビジネスの概念の作成(Marketingドメイン)</h1>
 <h2 id="_1">はじめに</h2>
 <h3 id="_2">📢 導入</h3>
-<p>このモジュールでは、Microsoft Purview を活用して、Sales部門向けのガバナンス ドメインとビジネス用語の定義を行う方法を学びます。データガバナンスの基盤となるドメインの作成から、用語や重要なデータ要素の定義、データ製品の構築、アクセスポリシーの設定まで、実践的なステップを通じて理解を深めます。</p>
+<p>このモジュールでは、Microsoft Purview を活用して、Marketing部門向けのガバナンス ドメインとビジネス用語の定義を行う方法を学びます。データガバナンスの基盤となるドメインの作成から、用語や重要なデータ要素の定義、データ製品の構築、アクセスポリシーの設定まで、実践的なステップを通じて理解を深めます。</p>
 <h3 id="_3">🤔 前提条件</h3>
 <ul>
 <li>D04. データ資産のキュレーション</li>
 </ul>
 <h3 id="_4">🎯 ゴール</h3>
 <ul>
-<li>Sales部門向けのガバナンス ドメインを新規作成する</li>
+<li>Marketing部門向けのガバナンス ドメインを新規作成する</li>
 <li>ビジネス用語と重要なデータ要素を定義し、関連付ける</li>
 <li>EC取引データを統合したデータ製品を作成する</li>
 <li>データ製品に対するアクセスポリシーを設定し、利用目的と許諾情報を構成する</li>
@@ -896,12 +894,14 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li>操作対象ソリューションは統合カタログです。</li>
-<li>このモジュールでは主にSalesドメインの管理者が操作をします。</li>
+<li>このモジュールでは主にMarketingドメインの管理者が操作をします。</li>
 </ul>
 </div>
 <h2 id="_5">ロールの付与</h2>
 <div class="admonition warning">
-<p class="admonition-title">このセクションは<strong>データ ガバナンス管理者</strong>が操作をします。</p>
+<p class="admonition-title">Warning</p>
+<p>このセクションは<strong>データ ガバナンス管理者</strong>が操作をします。<br />
+U01で既にロールを付与済みの場合はスキップしてください。</p>
 </div>
 <ol>
 <li>
@@ -921,9 +921,9 @@
 <p><a class="glightbox" href="../images/module01/image-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-40.png" width="90%" /></a></p>
 </li>
 </ol>
-<h2 id="sales">Sales部門用のガバナンス ドメイン作成</h2>
+<h2 id="marketing">Marketing部門用のガバナンス ドメイン作成</h2>
 <div class="admonition warning">
-<p class="admonition-title">このセクション以降はSalesドメインの管理者が操作をします。</p>
+<p class="admonition-title">このセクション以降はMarketingドメインの管理者が操作をします。</p>
 </div>
 <ol>
 <li>
@@ -934,10 +934,10 @@
 <p><strong>名前</strong>、<strong>説明</strong>を入力し<strong>種類</strong>から<strong>業種</strong>を選択し作成します。</p>
 <div class="grid" markdown>
 <p>名前</p>
-<div class="highlight"><pre><span></span><code>ワークショップ用Salesドメイン
+<div class="highlight"><pre><span></span><code>ワークショップ用Marketingドメイン
 </code></pre></div>
 <p>説明</p>
-<div class="highlight"><pre><span></span><code>Sales部門用のガバナンス ドメイン。
+<div class="highlight"><pre><span></span><code>Marketing部門用のガバナンス ドメイン。
 </code></pre></div>
 </div>
 <p><a class="glightbox" href="../images/module01/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-4.png" width="90%" /></a></p>
@@ -982,7 +982,7 @@
 <div class="highlight"><pre><span></span><code>オンラインプラットフォーム上で行われた商品の購入・販売に関する取引データ。国別に分かれており、グローバルな購買傾向の分析に活用可能。
 </code></pre></div>
 <p>所有者</p>
-<div class="highlight"><pre><span></span><code>Sales部門の管理者
+<div class="highlight"><pre><span></span><code>Marketing部門の管理者
 </code></pre></div>
 </div>
 <p><a class="glightbox" href="../images/module01/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-10.png" /></a></p>
@@ -1009,7 +1009,7 @@
 <div class="highlight"><pre><span></span><code>クレジットカード、PayPal、銀行振込など、取引に使用された決済手段。
 </code></pre></div>
 <p>所有者</p>
-<div class="highlight"><pre><span></span><code>Sales部門の管理者
+<div class="highlight"><pre><span></span><code>Marketing部門の管理者
 </code></pre></div>
 </div>
 <p><a class="glightbox" href="../images/module01/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-14.png" /></a></p>
@@ -1047,7 +1047,7 @@
 <div class="highlight"><pre><span></span><code>各取引の金額情報。通貨単位はシステム依存で、売上集計や平均購入額の算出に使用される。
 </code></pre></div>
 <p>所有者</p>
-<div class="highlight"><pre><span></span><code>Sales部門の管理者
+<div class="highlight"><pre><span></span><code>Marketing部門の管理者
 </code></pre></div>
 <p>必要なデータ型</p>
 <div class="highlight"><pre><span></span><code>数値
@@ -1098,7 +1098,7 @@ ecommerce_transactions_usa.parquet
 <div class="highlight"><pre><span></span><code>データエンジニア
 </code></pre></div>
 <p>所有者</p>
-<div class="highlight"><pre><span></span><code>Sales部門の管理者
+<div class="highlight"><pre><span></span><code>Marketing部門の管理者
 </code></pre></div>
 </div>
 <p><a class="glightbox" href="../images/module01/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../images/module01/image-26.png" /></a></p>
@@ -1155,10 +1155,10 @@ ecommerce_transactions_usa.parquet
 <p>次の値を入力し<strong>構成証明の追加</strong>をクリックし利用許諾書の情報を入力します。</p>
 <div class="grid" markdown>
 <p>アクセス要求の承認者</p>
-<div class="highlight"><pre><span></span><code>Sales部門の管理者
+<div class="highlight"><pre><span></span><code>Marketing部門の管理者
 </code></pre></div>
 <p>データ アクセス プロバイダー</p>
-<div class="highlight"><pre><span></span><code>Sales部門の管理者
+<div class="highlight"><pre><span></span><code>Marketing部門の管理者
 </code></pre></div>
 <p>データ コピーを許可する</p>
 <p>✅</p>
